@@ -1,6 +1,7 @@
 import pytest
 from selenium import webdriver
-
+from selenium import webdriver
+from webdriver_manager.opera import OperaDriverManager
 
 def pytest_addoption(parser):
     parser.addoption(
@@ -22,6 +23,8 @@ def driver(request):
         browser = webdriver.Chrome(executable_path=f"{drivers}\chromedriver.exe")
     elif browser_name == "firefox":
         browser = webdriver.Firefox(executable_path=f"{drivers}\geckodriver.exe")
+    elif browser_name == "opera":
+        browser = webdriver.Opera(executable_path=OperaDriverManager().install())
     else:
         raise ValueError("Browser not supported")
     request.addfinalizer(browser.close)

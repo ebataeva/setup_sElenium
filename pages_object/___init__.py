@@ -1,1 +1,1 @@
-from .login_admin_pages import LoginAdminPage
+from .login_admin_page import LoginAdminPage
