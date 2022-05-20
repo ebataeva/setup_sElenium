@@ -7,3 +7,7 @@ class LoginAdminPage:
     SUBMIT_BUTTON = (By.CSS_SELECTOR, "button[type='submit']")
     OPENCART_LINK = (By.XPATH, "//*[text()='OpenCart']")
     FORGOTTEN_PASSWORD = (By.LINK_TEXT, "Forgotten Password")
+    LOGIN_BUTTON = (By.XPATH, "//button[@type='submit']")
+    ALERT_DANGER = (By.XPATH, "//div[@class = 'alert alert-danger alert-dismissible']")
+    CLOSE_BUTTON = (By.CSS_SELECTOR, ".close")
+    ALERT_DANGER_TEXT = "No match for Username and/or Password.\n×"

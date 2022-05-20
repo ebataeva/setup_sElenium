@@ -15,3 +15,6 @@ def test_menu(driver, main_page_url):
     driver.get(main_page_url)
     els = driver.find_elements(by=By.CSS_SELECTOR, value=".dropdown")
     [print(type(el)) for el in els]
+
+def test_product(driver, main_page_url):
+    driver.get(main_page_url)
