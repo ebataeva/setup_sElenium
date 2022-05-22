@@ -1,7 +1,6 @@
 from pages_object import login_admin_page
-from selenium.webdriver.common.by import By
 import time
-from support import wait_element, wait_title_contain, wait_elements, sure_no_element
+from support import wait_element, sure_no_element
 
 
 def test_login_page_external(driver, main_page_url):

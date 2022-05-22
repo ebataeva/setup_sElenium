@@ -1,8 +1,5 @@
-import time
-from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.support.wait import WebDriverWait
 from pages_object import main_page
-from support import wait_elements, wait_title_contain, wait_element
+from support import wait_elements, wait_element
 
 
 def test_header(driver, main_page_url):

@@ -1,7 +1,7 @@
 import pytest
 from selenium import webdriver
-from selenium import webdriver
 from webdriver_manager.opera import OperaDriverManager
+
 
 def pytest_addoption(parser):
     parser.addoption(
@@ -11,6 +11,11 @@ def pytest_addoption(parser):
     parser.addoption(
         "--drivers",
         default="C:\Otus\drivers"
+
+    )
+    parser.addoption(
+        "--mainpage",
+        default="http://192.168.1.76:8081/"
 
     )
 
@@ -30,6 +35,7 @@ def driver(request):
     request.addfinalizer(browser.close)
     return browser
 
+
 @pytest.fixture()
-def main_page_url():
-    return "http://192.168.1.76:8081/"
+def main_page_url(request):
+    return request.config.getoption("--mainpage")

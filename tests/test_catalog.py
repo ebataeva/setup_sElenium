@@ -19,9 +19,9 @@ def test_catalog_menu_amount(driver, main_page_url):
 
 def test_points_sort_by(driver, main_page_url):
     driver.get(f"{main_page_url}/laptop-notebook")
-    assert len(wait_elements(driver, catalog_page.Catalog.SORT_BY)) == 10
+    assert len(wait_elements(driver, catalog_page.Catalog.SORT_BY)) == 9
 
 
 def test_points_limit_by(driver, main_page_url):
     driver.get(f"{main_page_url}/laptop-notebook")
-    assert len(wait_elements(driver, catalog_page.Catalog.LIMIT_BY)) == 10
+    assert len(wait_elements(driver, catalog_page.Catalog.LIMIT_BY)) == 5
