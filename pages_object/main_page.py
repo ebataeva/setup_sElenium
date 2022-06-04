@@ -1,7 +1,9 @@
 from selenium.webdriver.common.by import By
 
+from pages_object.basePage import BasePage
 
-class MainPage:
+
+class MainPage(BasePage):
     LOGO = (By.CSS_SELECTOR, "#logo")
     SEARCH_BAR = (By.CSS_SELECTOR, "#search")
     SEARCH_BAR_BUTTON = (By.CSS_SELECTOR, ".input-group-btn")
@@ -12,3 +14,6 @@ class MainPage:
     PRODUCT = (By.XPATH, "//div[@class='product-layout col-lg-3 col-md-3 col-sm-6 col-xs-12']")
     PRODUCTS = (By.XPATH, "//div[@class='product-layout col-lg-3 col-md-3 col-sm-6 col-xs-12']")
     PRICES = (By.XPATH, "//div[@class='caption']/h4/following-sibling::p[@class='price']")
+
+    def __init__(self, driver, base_url) -> None:
+        super().__init__(driver, base_url)

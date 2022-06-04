@@ -1,5 +1,7 @@
 from pages_object import login_admin_page
 import time
+
+from pages_object.login_admin_page import LoginAdminPage
 from support import wait_element, sure_no_element
 
 
@@ -14,7 +16,7 @@ def test_login_page_external(driver, main_page_url):
 
 def test_click_login_negative(driver, main_page_url):
     driver.get(f"{main_page_url}admin")
-    wait_element(driver, login_admin_page.LoginAdminPage.LOGIN_BUTTON).click()
+    LoginAdminPage(driver).click_login_button()
     assert wait_element(driver,
                         login_admin_page.LoginAdminPage.ALERT_DANGER).text == login_admin_page.LoginAdminPage.ALERT_DANGER_TEXT
     wait_element(driver, login_admin_page.LoginAdminPage.CLOSE_BUTTON).click()

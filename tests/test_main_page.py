@@ -1,5 +1,5 @@
 from pages_object import main_page
-from support import wait_elements, wait_element
+from support import wait_title_contain, wait_element, wait_elements
 
 
 def test_header(driver, main_page_url):
