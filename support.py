@@ -9,11 +9,13 @@ def type_in(driver, locator, name):
     except:
         raise AssertionError(f"не смог ввести {name} в поле, извините")
 
+
 def click_to_element(driver, locator):
     try:
         wait_element(driver, locator).click()
     except:
         raise AssertionError(f"не смог кликнуь по элементу с локатором  {locator}")
+
 
 def wait_element(driver, locator, time=3):
     try:
@@ -48,3 +50,10 @@ def wait_for_alert(driver, locator, time=3):
         WebDriverWait(driver, time).until(EC.alert_is_present())
     except:
         raise AssertionError(f"не дождался видимости элемента {locator} за {time} секунд")
+
+
+def find_element_inside_the_element_by(driver, locator1, locator2):
+    try:
+        return driver.find_element(*locator1).find_element(*locator2)
+    except:
+        raise AssertionError(f"не нашел ни  {locator1}  ни  {locator2} ")

@@ -1,3 +1,5 @@
+from pages_object.basePage import BasePage
+from pages_object.register_page import RegisterPage
 from support import wait_title_contain, wait_element, wait_elements
 from pages_object import register_page
 from faker import Faker
@@ -20,3 +22,10 @@ def test_input_info_negative(driver, main_page_url):
     wait_element(driver, register_page.RegisterPage.INPUT_TELEPHONE).send_keys("\u2764")  # отправить сердечко
     time.sleep(3)
 
+def test_register_new_user(driver, main_page_url):
+    driver.get(main_page_url)
+    BP = BasePage(driver, base_url=main_page_url)
+    BP.click_my_account_button().click_register_menu_button()
+    reg_page = RegisterPage(driver)
+    reg_page.fullfill_form().click_checkbox_privacy_policy().click_submit_button().verify_account_has_been_created()
+    time.sleep(10)

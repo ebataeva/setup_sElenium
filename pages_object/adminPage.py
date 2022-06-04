@@ -1,3 +1,5 @@
+import json
+
 from selenium.webdriver.common.by import By
 
 from pages_object.basePage import BasePage
@@ -13,6 +15,7 @@ class AdminPage(BasePage):
     PASSWORD = "bitnami"
     INPUT_USERNAME = (By.CSS_SELECTOR, "#input-username")
     INPUT_PASSWORD = (By.CSS_SELECTOR, "#input-password")
+    LOGIN_BUTTON = (By.XPATH, "//button[@type='submit']")
 
     def logIN_to_admin_page(self):
         self.driver.get(f"{self.base_url}admin")
@@ -25,3 +28,12 @@ class AdminPage(BasePage):
     def type_password_to_input(self):
         type_in(self.driver, self.INPUT_PASSWORD, self.PASSWORD)
         return self
+
+    def click_login_button(self):
+        wait_element(self.driver, self.LOGIN_BUTTON).click()
+        return self
+
+    def get_cookies_from_this_and_save(self):
+        cookies = self.driver.get_cookies()
+        with open("admin_cookies.json", "w") as file:
+            file.write(json.dumps(cookies, indent=4))
